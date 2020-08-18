@@ -53,7 +53,6 @@ namespace Blind
         {
             this.rect = rect;
             this.filePath = $"{DateTime.Now:MMddHHmmss}" + ".avi";
-            //this.filePath = "d:/qwe.avi";
             init();
             thread = new Thread(Run);
             videoWriter.Open(filePath,rect.Width,rect.Height,frameRate, videoCodec, BitRate);

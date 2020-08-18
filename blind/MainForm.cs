@@ -10,6 +10,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -609,11 +610,19 @@ namespace Blind
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             System.Drawing.Point screenPoint = model.PointToScreen(new System.Drawing.Point());
+            screenPoint.X = (int)(screenPoint.X * ScreenProp.ScaleX);
+            screenPoint.Y = (int)(screenPoint.Y * ScreenProp.ScaleY);
             GetRecorder().Start(new Rectangle(screenPoint, new Size() {
-                Width = model.Size.Width % 2 == 0 ? model.Size.Width : model.Size.Width - 1,
-                Height = model.Size.Height % 2 == 0 ? model.Size.Height : model.Size.Height - 1,
+                Width = even((int)(model.Size.Width * ScreenProp.ScaleX)),
+                Height = even((int)(model.Size.Height * ScreenProp.ScaleY))
             }));
             videoStopButton.Enabled = true;
+        }
+
+
+        private int even(int x)
+        {
+            return x % 2 == 0 ? x : x - 1;
         }
 
 
@@ -817,10 +826,18 @@ namespace Blind
         }
 
 
+
         private Bitmap printScreen()
         {
+            Graphics g = Graphics.FromHwnd(IntPtr.Zero);
             System.Drawing.Point sceenPoint = model.PointToScreen(new System.Drawing.Point());
-            Rectangle rect = new Rectangle(sceenPoint, model.Size);
+            sceenPoint.X = (int)(sceenPoint.X * ScreenProp.ScaleX);
+            sceenPoint.Y = (int)(sceenPoint.Y * ScreenProp.ScaleY);
+            Rectangle rect = new Rectangle(sceenPoint, new Size() {
+                Width = (int)(model.Size.Width * ScreenProp.ScaleX),
+                Height = (int)(model.Size.Height * ScreenProp.ScaleY)
+            });
+            
             Bitmap img = new Bitmap(rect.Width, rect.Height);
             Graphics graphics = Graphics.FromImage(img);
             graphics.CopyFromScreen(rect.X, rect.Y, 0, 0, rect.Size);
