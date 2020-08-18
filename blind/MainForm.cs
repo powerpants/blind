@@ -87,7 +87,7 @@ namespace Blind
         //改变视图
         private void changeView(viewType type)
         {
-            model.SetView(type, true, model.AnimateCamera);
+            model.SetView(type, false, model.AnimateCamera);
             model.Invalidate();
         }
 

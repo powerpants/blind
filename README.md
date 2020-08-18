@@ -25,7 +25,7 @@ blind是基于eyeshot开发的简单的三维引擎，具备最基本的三维�
 ## To Run it
 1. **克隆项目到本地**
 2. **将/blind/dll下的 a\*.dll , p\*.dll , s\*.dll拷贝至/blind/bin/Debug或/blind/bin/Release中**
-3. **打开Visual Studio，将/blind/dll下的AForge\*.dll添加至引用**
+3. **用Visual Studio或者JetBrains Rider打开项目**
 4. **启动**
 
 
