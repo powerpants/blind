@@ -544,7 +544,12 @@ namespace Blind
                 setSelectionRadioEnabled(false);
                 Transformation center = new Translation(temp.BoxMin.X, temp.BoxMin.Y, temp.BoxMin.Z);
                 model.ObjectManipulator.Enable(center, false);
+                model.ObjectManipulator.ScaleX.Visible = true;
+                model.ObjectManipulator.ScaleY.Visible = true;
+                model.ObjectManipulator.ScaleZ.Visible = true;
                 model.ObjectManipulator.ShowOriginalWhileEditing = false;
+                model.CompileUserInterfaceElements();
+
                 model.Invalidate();
             }
             else
