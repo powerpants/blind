@@ -1,4 +1,4 @@
 .vs
 .idea
-blind/bin
 blind/obj
+blind/bin/Release
