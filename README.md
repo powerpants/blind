@@ -24,8 +24,8 @@ blind是基于eyeshot开发的简单的三维引擎，具备最基本的三维�
 
 ## To Run it
 1. **克隆项目到本地**
-2. **将/blind/dll下的 a\*.dll , p\*.dll , s\*.dll拷贝至/blind/bin/Debug或/blind/bin/Release中**
-3. **用Visual Studio或者JetBrains Rider打开项目**
+2. **用Visual Studio或者JetBrains Rider打开项目**
+3. **将/blind/dll下的 a\*.dll , p\*.dll , s\*.dll拷贝至/blind/bin/Debug或/blind/bin/Release中**
 4. **启动**
 
 
@@ -34,7 +34,7 @@ blind是基于eyeshot开发的简单的三维引擎，具备最基本的三维�
 > * 由于eyeshot貌似没有获取三维场景图片的接口(或者我没找到)，故录制视频采用的是从屏幕固定区域截屏获取帧的方法
 因此录制视频的时候请确保程序在最上层
 > * 当进行Selection的时候，按右键可进行模型的交互，再次按右键可应用交互，ESC可取消
-
+> * 初次运行没有/bin/Debug或/bin/Release目录可以先运行程序生成目录或者自行创建
 
 
 
